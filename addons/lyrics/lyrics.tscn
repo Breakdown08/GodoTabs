@@ -42,6 +42,7 @@ focus_mode = 0
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 0
 theme_override_constants/line_spacing = 40
+theme_override_font_sizes/font_size = 40
 text = "Если у вас нету дома, пожары ему не страшны
 И жена не уйдет к другому,
 Если у вас, если у вас, 

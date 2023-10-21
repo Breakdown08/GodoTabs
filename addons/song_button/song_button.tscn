@@ -5,6 +5,7 @@
 [node name="SongButton" type="Button"]
 offset_right = 8.0
 offset_bottom = 8.0
+theme_override_font_sizes/font_size = 70
 script = ExtResource("1_bo11v")
 
 [connection signal="pressed" from="." to="." method="_on_pressed"]

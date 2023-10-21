@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://blsg4st6vs4tn"]
+
+[ext_resource type="Script" path="res://addons/song_chord/song_chord.gd" id="1_1wkl1"]
+
+[node name="SongChord" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_font_sizes/font_size = 40
+text = "Am"
+script = ExtResource("1_1wkl1")
+offset = Vector2(0, -100)
