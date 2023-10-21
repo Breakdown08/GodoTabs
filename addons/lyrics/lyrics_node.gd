@@ -1,7 +1,7 @@
 extends Control
 
-@onready var lyrics = $Panel/VBoxContainer/ScrollContainer/TextEdit
-@onready var viewport = $Panel/VBoxContainer/ScrollContainer/TextEdit/TouchScroller
+@onready var lyrics = $Panel/VBoxContainer/TextEdit
+@onready var viewport = $Panel/VBoxContainer/TextEdit/TouchScroller
 
 
 func set_lyrics(data: String):

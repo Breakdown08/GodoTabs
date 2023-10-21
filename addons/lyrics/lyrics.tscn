@@ -30,24 +30,29 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-
-[node name="TextEdit" type="TextEdit" parent="Panel/VBoxContainer/ScrollContainer"]
+[node name="TextEdit" type="TextEdit" parent="Panel/VBoxContainer"]
 layout_direction = 1
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_mode = 0
-mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 0
 theme_override_colors/background_color = Color(0.235294, 0.235294, 0.235294, 1)
 theme_override_constants/line_spacing = 40
 theme_override_font_sizes/font_size = 40
 text = "Если у вас нету дома, пожары ему не страшны
+И жена не уйдет к другому,
+Если у вас, если у вас, 
+Если у вас нет жены,
+Нету жены.
+Если у вас нету дома, пожары ему не страшны
+И жена не уйдет к другому,
+Если у вас, если у вас, 
+Если у вас нет жены,
+Нету жены.
+Если у вас нету дома, пожары ему не страшны
 И жена не уйдет к другому,
 Если у вас, если у вас, 
 Если у вас нет жены,
@@ -67,13 +72,15 @@ caret_move_on_right_click = false
 caret_mid_grapheme = false
 script = ExtResource("1_vghvu")
 
-[node name="TouchScroller" type="ColorRect" parent="Panel/VBoxContainer/ScrollContainer/TextEdit"]
+[node name="TouchScroller" type="ColorRect" parent="Panel/VBoxContainer/TextEdit"]
+clip_contents = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 color = Color(1, 1, 1, 0)
 script = ExtResource("3_q71i4")
-metadata/_edit_use_anchors_ = true

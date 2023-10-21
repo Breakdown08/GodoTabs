@@ -12,7 +12,7 @@ var tabs_data: Array[Dictionary]
 @export var is_playing: bool = 0
 var auto_scrolling_speed: float
 @onready var scroll_timer: Timer = $PanelContainer/VBoxContainer/HBoxContainer/PlayButton/ScrollTimer
-@onready var scroll_speed_slider = $PanelContainer/VBoxContainer/VBoxContainer/AutoScrollSpeedSlider
+@onready var scroll_speed_slider = $PanelContainer/SliderVBoxContainer/Panel/VBoxContainer/AutoScrollSpeedSlider
 
 
 func _ready():
@@ -50,3 +50,9 @@ func _on_scroll_timer_timeout():
 func invert(current_value: float, max_value: float, step: float) -> float:
 	var _max_value = max_value + step
 	return _max_value - current_value
+	
+
+func _input(event):
+	if event.is_action_pressed("ui_accept"):
+		tabs_data = DbManager.get_song_tabs(id_song)
+		lyrics.load_tabs(tabs_data)

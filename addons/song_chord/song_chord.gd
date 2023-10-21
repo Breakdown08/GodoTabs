@@ -20,4 +20,3 @@ func register():
 	column = lyrics.chords_positions[self]["column"]
 	text = lyrics.chords_positions[self]["name"]
 	id = lyrics.add_caret(line, column)
-	
