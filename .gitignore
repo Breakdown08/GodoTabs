@@ -6,6 +6,10 @@ export.cfg
 export_presets.cfg
 *.apk*
 build/
+*.pck
+*.sh
+*x86_64
+libgdsqlite.*
 
 # Imported translations (automatically generated from CSV files)
 *.translation
