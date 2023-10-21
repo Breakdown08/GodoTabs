@@ -5,7 +5,7 @@ extends ColorRect
 
 func _ready():
 	EventBus.time_to_scroll.connect(scroll)
-
+	
 
 func _input(event):
 	if event is InputEventScreenDrag:

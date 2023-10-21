@@ -32,9 +32,14 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
-[node name="TextEdit" type="TextEdit" parent="Panel/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextEdit" type="TextEdit" parent="Panel/VBoxContainer/ScrollContainer"]
 layout_direction = 1
 layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_mode = 0
 mouse_force_pass_scroll_events = false
@@ -62,7 +67,7 @@ caret_move_on_right_click = false
 caret_mid_grapheme = false
 script = ExtResource("1_vghvu")
 
-[node name="TouchScroller" type="ColorRect" parent="Panel/VBoxContainer/TextEdit"]
+[node name="TouchScroller" type="ColorRect" parent="Panel/VBoxContainer/ScrollContainer/TextEdit"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,12 +76,4 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
 script = ExtResource("3_q71i4")
-
-[node name="CenterContainer" type="CenterContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
 metadata/_edit_use_anchors_ = true
