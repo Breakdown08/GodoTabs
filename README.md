@@ -2,10 +2,8 @@
  Песенник с аккордами на движке Godot 4
 
 
-## Команда для сборки приложения с экспортом файла базы данных в корень директории сборки
+## Настройки экспорта
+ для успешного экспорта на Android, необходимо указать во вкладке "Ресурсы" дополнительные фильтры:
+ ![alt text](https://github.com/Breakdown08/GodoTabs/blob/main/export.png?raw=true)
 
-```
-mkdir build
-godot -s export_data.gd
-godot -e --export-debug "Windows Desktop" 'build/GodoTabs.exe'
-```
+Это позволит записать в расположение "res://" базу данных формате для чтения.
