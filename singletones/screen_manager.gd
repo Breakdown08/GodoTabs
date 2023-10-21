@@ -8,7 +8,6 @@ var _params = null
 
 func change_scene(next_scene, params=null):
 	_params = params
-	#get_tree().change_scene_to(next_scene)
 	get_tree().change_scene_to_packed(next_scene)
 
 
