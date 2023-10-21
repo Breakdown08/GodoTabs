@@ -1,0 +1,73 @@
+[gd_scene load_steps=4 format=3 uid="uid://c0u5v2uesllol"]
+
+[ext_resource type="Script" path="res://addons/lyrics/lyrics_node.gd" id="1_bnoen"]
+[ext_resource type="Script" path="res://addons/lyrics/lyrics.gd" id="1_vghvu"]
+[ext_resource type="Script" path="res://addons/lyrics/viewport.gd" id="3_n3wwy"]
+
+[node name="Lyrics" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_bnoen")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer"]
+layout_mode = 2
+
+[node name="TextEdit" type="TextEdit" parent="Panel/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+focus_mode = 0
+mouse_force_pass_scroll_events = false
+mouse_default_cursor_shape = 0
+theme_override_constants/line_spacing = 40
+text = "Если у вас нету дома, пожары ему не страшны
+И жена не уйдет к другому,
+Если у вас, если у вас, 
+Если у вас нет жены,
+Нету жены."
+editable = false
+context_menu_enabled = false
+shortcut_keys_enabled = false
+selecting_enabled = false
+deselect_on_focus_loss_enabled = false
+drag_and_drop_selection_enabled = false
+virtual_keyboard_enabled = false
+middle_mouse_paste_enabled = false
+wrap_mode = 1
+scroll_smooth = true
+scroll_v_scroll_speed = 1.0
+caret_move_on_right_click = false
+caret_mid_grapheme = false
+script = ExtResource("1_vghvu")
+
+[node name="Viewport" type="ColorRect" parent="Panel/MarginContainer/ScrollContainer/TextEdit"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+script = ExtResource("3_n3wwy")

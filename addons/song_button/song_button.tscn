@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddqflds1eyjxw"]
+
+[ext_resource type="Script" path="res://addons/song_button/song_button.gd" id="1_bo11v"]
+
+[node name="SongButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_bo11v")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]
