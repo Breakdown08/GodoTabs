@@ -14,5 +14,3 @@ func _ready():
 	lyrics.set_lyrics(lyrics_data)
 	tabs_data = DbManager.get_song_tabs(id_song)
 	lyrics.load_tabs(tabs_data)
-	
-

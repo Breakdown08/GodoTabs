@@ -21,7 +21,3 @@ func register_new_chord(chord_name: String, line: int, column: int):
 	chords_positions.merge({chord: {"name": chord_name, "line": line, "column": column}})
 	add_child(chord)
 	chord.register()
-		
-		
-func get_caret_position() -> Vector2:
-	return Vector2(get_caret_column(), get_caret_line())

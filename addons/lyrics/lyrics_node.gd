@@ -9,3 +9,4 @@ func set_lyrics(data: String):
 
 func load_tabs(data: Array[Dictionary]):
 	lyrics.add_chords(data)
+	
