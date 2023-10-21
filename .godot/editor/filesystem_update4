@@ -1,6 +1,0 @@
-res://addons/lyrics/lyrics.tscn
-res://screens/songs_list/songs_list.tscn
-res://addons/song_button/song_button.tscn
-res://screens/song/song.tscn
-res://screens/songs_list/songs_list.gd
-res://singletones/screen_manager.gd
