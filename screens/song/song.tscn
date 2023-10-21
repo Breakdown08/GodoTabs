@@ -1,7 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://drgeo2sooroxh"]
+[gd_scene load_steps=10 format=3 uid="uid://drgeo2sooroxh"]
 
 [ext_resource type="Script" path="res://screens/song/song.gd" id="1_jcsni"]
 [ext_resource type="PackedScene" uid="uid://c0u5v2uesllol" path="res://addons/lyrics/lyrics.tscn" id="1_r1y33"]
+[ext_resource type="Texture2D" uid="uid://cxc53vs5eg5vr" path="res://icons/back_icon.svg" id="2_huelp"]
+[ext_resource type="Texture2D" uid="uid://bnd505hmuemmb" path="res://icons/play_icon.svg" id="3_ne7qb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7oxo"]
+bg_color = Color(0.235294, 0.235294, 0.235294, 1)
+
+[sub_resource type="MeshTexture" id="MeshTexture_jl06p"]
+
+[sub_resource type="MeshTexture" id="MeshTexture_01fhv"]
+
+[sub_resource type="MeshTexture" id="MeshTexture_qa4wy"]
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_3sg4i"]
+thickness = 35
 
 [node name="Song" type="Control"]
 layout_mode = 3
@@ -10,31 +24,94 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_jcsni")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_x7oxo")
 
-[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
 layout_mode = 2
+alignment = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ScrollContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_stretch_ratio = 0.0
+alignment = 1
+
+[node name="BackToMenuButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(160, 100)
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 3
+icon = ExtResource("2_huelp")
+icon_alignment = 1
+expand_icon = true
 
-[node name="Title" type="Label" parent="MarginContainer/ScrollContainer/VBoxContainer"]
+[node name="Title" type="Label" parent="PanelContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 60
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 30
 text = "Название песни"
 horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+justification_flags = 227
+clip_text = true
 
-[node name="Lyrics" parent="MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("1_r1y33")]
+[node name="PlayButton" type="Button" parent="PanelContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 100)
+layout_mode = 2
+size_flags_horizontal = 3
+icon = ExtResource("3_ne7qb")
+icon_alignment = 1
+expand_icon = true
+
+[node name="ScrollTimer" type="Timer" parent="PanelContainer/VBoxContainer/HBoxContainer/PlayButton"]
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+
+[node name="Lyrics" parent="PanelContainer/VBoxContainer/MarginContainer" instance=ExtResource("1_r1y33")]
 layout_mode = 2
 size_flags_horizontal = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+alignment = 1
+
+[node name="AutoScrollSpeedSlider" type="HSlider" parent="PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_icons/grabber = SubResource("MeshTexture_jl06p")
+theme_override_icons/grabber_highlight = SubResource("MeshTexture_01fhv")
+theme_override_icons/grabber_disabled = SubResource("MeshTexture_qa4wy")
+theme_override_styles/slider = SubResource("StyleBoxLine_3sg4i")
+min_value = 1.0
+max_value = 2.0
+step = 0.1
+value = 2.0
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+text = "Скорость прокрутки"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/BackToMenuButton" to="." method="_on_back_to_menu_button_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/HBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="timeout" from="PanelContainer/VBoxContainer/HBoxContainer/PlayButton/ScrollTimer" to="." method="_on_scroll_timer_timeout"]
+[connection signal="value_changed" from="PanelContainer/VBoxContainer/VBoxContainer/AutoScrollSpeedSlider" to="." method="_on_auto_scroll_speed_slider_value_changed"]

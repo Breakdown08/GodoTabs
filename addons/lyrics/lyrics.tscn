@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://addons/lyrics/lyrics_node.gd" id="1_bnoen"]
 [ext_resource type="Script" path="res://addons/lyrics/lyrics.gd" id="1_vghvu"]
-[ext_resource type="Script" path="res://addons/lyrics/viewport.gd" id="3_n3wwy"]
+[ext_resource type="Script" path="res://addons/lyrics/lyrics_scroller.gd" id="3_q71i4"]
 
 [node name="Lyrics" type="Control"]
 layout_mode = 3
@@ -11,9 +11,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+size_flags_horizontal = 3
 script = ExtResource("1_bnoen")
+metadata/_edit_use_anchors_ = true
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -23,24 +23,23 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="Panel"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+alignment = 1
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Panel/MarginContainer"]
+[node name="TextEdit" type="TextEdit" parent="Panel/VBoxContainer"]
+layout_direction = 1
 layout_mode = 2
-
-[node name="TextEdit" type="TextEdit" parent="Panel/MarginContainer/ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
 size_flags_vertical = 3
 focus_mode = 0
 mouse_force_pass_scroll_events = false
 mouse_default_cursor_shape = 0
+theme_override_colors/background_color = Color(0.235294, 0.235294, 0.235294, 1)
 theme_override_constants/line_spacing = 40
 theme_override_font_sizes/font_size = 40
 text = "Если у вас нету дома, пожары ему не страшны
@@ -63,7 +62,7 @@ caret_move_on_right_click = false
 caret_mid_grapheme = false
 script = ExtResource("1_vghvu")
 
-[node name="Viewport" type="ColorRect" parent="Panel/MarginContainer/ScrollContainer/TextEdit"]
+[node name="TouchScroller" type="ColorRect" parent="Panel/VBoxContainer/TextEdit"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -71,4 +70,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(1, 1, 1, 0)
-script = ExtResource("3_n3wwy")
+script = ExtResource("3_q71i4")
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
