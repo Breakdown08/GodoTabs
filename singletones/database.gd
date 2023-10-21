@@ -54,6 +54,7 @@ func _ready():
 func create_database():
 	var tables: Array = get_tables_to_create()
 	db = SQLite.new()
+	db.read_only = true
 	db.path = data_path
 	db.verbosity_level = verbosity_level
 	db.open_db()
